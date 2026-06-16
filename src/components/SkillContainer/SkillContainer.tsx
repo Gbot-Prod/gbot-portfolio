@@ -29,6 +29,22 @@ const skills = [
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-plain.svg" width={50} height={50} />
   },
   {
+    name: 'Java',
+    icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" width={50} height={50} />
+  },
+  {
+    name: 'Kotlin',
+    icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-plain.svg" width={50} height={50} />
+  },
+  {
+    name: 'C++',
+    icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-plain.svg" width={50} height={50} />
+  },
+  {
+    name: 'PostgreSQL',
+    icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-plain.svg" width={50} height={50} />
+  },
+  {
     name: 'Git',
     icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain.svg" width={50} height={50} />
   },
@@ -44,7 +60,7 @@ const skills = [
 
 function SkillContainer() {
   return (
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full flex flex-wrap justify-center items-center gap-6">
+    <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-6">
       {skills.map((skill, index) => (
         <div className='skill grid place-items-center gap-2 p-4 rounded-2xl bg-white/15 backdrop-blur-md border border-white/10 shadow-xl text-white font-bold w-32 h-32' key={index}>
           {skill.icon}

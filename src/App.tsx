@@ -6,11 +6,13 @@ import Profile from './components/Profile/Profile.tsx'
 
 function App() {
   return (
-    <>
+    <div className="relative min-h-screen overflow-hidden text-white">
+      <Background />
+      <main className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center justify-center gap-12 px-6 py-16 sm:gap-16">
       <Profile />
       <SkillContainer />
-      <Background />
-    </>
+      </main>
+    </div>
   )
 }
 
