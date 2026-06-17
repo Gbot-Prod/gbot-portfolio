@@ -60,9 +60,10 @@ const skills = [
 
 function SkillContainer() {
   return (
-    <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-6">
+    <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(8rem,1fr))] gap-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 shadow-xl">
+      <h1 className="col-span-full text-7xl font-bold text-center mb-4">Skills</h1>
       {skills.map((skill, index) => (
-        <div className='skill grid place-items-center gap-2 p-4 rounded-2xl bg-white/15 backdrop-blur-md border border-white/10 shadow-xl text-white font-bold w-32 h-32' key={index}>
+        <div className='skillIcon grid place-items-center gap-2 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 shadow-xl text-white font-bold w-32 h-32' key={index}>
           {skill.icon}
           <span>{skill.name}</span>
         </div>
