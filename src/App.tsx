@@ -58,21 +58,22 @@ function App() {
 
         <section id="profile" data-portfolio-section className="portfolio-section">
           <div className="section-content">
-            <p className="section-kicker">02 / About</p>
+            <p className="section-kicker">About</p>
             <h2 className="section-title">Professional Profile</h2>
             <div className="glass-panel">
               <p>
-                Add a brief introduction: who you are, what you are studying or have studied,
-                and the kind of work you are interested in pursuing.
+                Hello! I'm a graduating computer science student from STI Global City
+                I'm aspiring to work as a full stack developer from here on, training myself to that goal by learning several skill
               </p>
               <div className="profile-details">
                 <div>
                   <h3>Education</h3>
-                  <p>Add your school, qualification, and relevant dates.</p>
+                  <p>STI Global City 2027</p>
+                  <p>Jose Rizal University 2023</p>
                 </div>
                 <div>
                   <h3>Career interests</h3>
-                  <p>Describe the roles, industries, or problems that interest you.</p>
+                  <p>Cybersecurity | Full Stack Development | Networking.</p>
                 </div>
               </div>
             </div>
@@ -81,33 +82,31 @@ function App() {
 
         <section id="skills" data-portfolio-section className="portfolio-section">
           <div className="section-content">
-            <p className="section-kicker">03 / Capabilities</p>
+            <p className="section-kicker">Capabilities</p>
             <SkillContainer />
             <p className="section-hint">
-              Add a brief example showing how you have used these technical and transferable skills.
+              
             </p>
           </div>
         </section>
 
         <section id="projects" data-portfolio-section className="portfolio-section">
           <div className="section-content">
-            <p className="section-kicker">04 / Selected work</p>
+            <p className="section-kicker">Project Display</p>
             <ProjectContainer />
             <p className="section-hint">
-              For each project, include your contribution, skills demonstrated, and the outcome or
-              lesson learned.
+
             </p>
           </div>
         </section>
 
         <section id="achievements" data-portfolio-section className="portfolio-section">
           <div className="section-content">
-            <p className="section-kicker">05 / Experience</p>
+            <p className="section-kicker">Experience</p>
             <h2 className="section-title">Achievements &amp; Training</h2>
             <div className="glass-panel">
               <p>
-                Add relevant awards, certificates, seminars, internships, volunteer work, or
-                organizational experience.
+                
               </p>
             </div>
           </div>
@@ -115,12 +114,11 @@ function App() {
 
         <section id="objective" data-portfolio-section className="portfolio-section">
           <div className="section-content">
-            <p className="section-kicker">06 / Direction</p>
+            <p className="section-kicker">Direction</p>
             <h2 className="section-title">Career Objective</h2>
             <div className="glass-panel">
               <p>
-                Write a concise statement about your professional goals and how you hope to
-                contribute to your chosen field.
+                
               </p>
             </div>
           </div>
@@ -128,10 +126,10 @@ function App() {
 
         <section id="contact" data-portfolio-section className="portfolio-section">
           <div className="section-content">
-            <p className="section-kicker">07 / Get in touch</p>
+            <p className="section-kicker">Get in touch</p>
             <h2 className="section-title">Contact Information</h2>
             <div className="glass-panel contact-panel">
-              <p>Add a professional email address and links to relevant professional profiles.</p>
+              <p>.</p>
             </div>
           </div>
         </section>

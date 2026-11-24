@@ -4,10 +4,10 @@
 function Profile() {
   return (
     <div className="section-content cover-content">
-      <p className="section-kicker">01 / Professional Portfolio</p>
-      <h1 className="cover-title">Your Full Name</h1>
-      <p className="cover-subtitle">Your intended career or professional title</p>
-      <p className="cover-prompt">Add a professional photograph here if appropriate.</p>
+      <p className="section-kicker">Professional Portfolio</p>
+      <h1 className="cover-title">Gilbert Dolz</h1>
+      <p className="cover-subtitle">Full Stack Developer</p>
+      <p className="cover-prompt"></p>
     </div>
   )
 }
