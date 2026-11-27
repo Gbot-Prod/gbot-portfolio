@@ -1,155 +1,25 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
+import Background from './components/Background/Background'
+import SectionIndicator from './components/SectionIndicator/SectionIndicator'
+import { useActiveSection } from './hooks/useActiveSection'
+import { sectionIds, sections } from './sections'
 import './App.css'
-import SkillContainer from './components/SkillContainer/SkillContainer.tsx'
-import ProjectContainer from './components/ProjectContainer/ProjectContainer.tsx'
-import Background from './components/Background/Background.tsx'
-import Profile from './components/Profile/Profile.tsx'
-
-const sections = [
-  { id: 'cover', label: 'Cover Page' },
-  { id: 'profile', label: 'Professional Profile' },
-  { id: 'skills', label: 'Key Skills' },
-  { id: 'projects', label: 'Projects & Work Samples' },
-  { id: 'achievements', label: 'Achievements & Training' },
-  { id: 'objective', label: 'Career Objective' },
-  { id: 'contact', label: 'Contact Information' },
-]
 
 function App() {
   const scrollerRef = useRef<HTMLElement>(null)
-  const [activeSection, setActiveSection] = useState(sections[0].id)
-
-  useEffect(() => {
-    const scroller = scrollerRef.current
-    if (!scroller) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const mostVisible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-
-        if (mostVisible) setActiveSection(mostVisible.target.id)
-      },
-      { root: scroller, threshold: [0.35, 0.6, 0.8] },
-    )
-
-    scroller.querySelectorAll<HTMLElement>('[data-portfolio-section]').forEach((section) => {
-      observer.observe(section)
-    })
-
-    return () => observer.disconnect()
-  }, [])
-
-  const goToSection = (id: string) => {
-    scrollerRef.current?.querySelector<HTMLElement>(`#${id}`)?.scrollIntoView({
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-      block: 'start',
-    })
-  }
+  const { activeId, scrollToSection } = useActiveSection(scrollerRef, sectionIds)
 
   return (
     <div className="portfolio-shell relative h-screen overflow-hidden text-white">
       <Background />
+
       <main ref={scrollerRef} className="portfolio-scroller relative z-10 h-full overflow-y-auto">
-        <section id="cover" data-portfolio-section className="portfolio-section">
-          <Profile />
-        </section>
-
-        <section id="profile" data-portfolio-section className="portfolio-section">
-          <div className="section-content">
-            <p className="section-kicker">About</p>
-            <h2 className="section-title">Professional Profile</h2>
-            <div className="glass-panel">
-              <p>
-                Hello! I'm a graduating computer science student from STI Global City
-                I'm aspiring to work as a full stack developer from here on, training myself to that goal by learning several skill
-              </p>
-              <div className="profile-details">
-                <div>
-                  <h3>Education</h3>
-                  <p>STI Global City 2027</p>
-                  <p>Jose Rizal University 2023</p>
-                </div>
-                <div>
-                  <h3>Career interests</h3>
-                  <p>Cybersecurity | Full Stack Development | Networking.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="skills" data-portfolio-section className="portfolio-section">
-          <div className="section-content">
-            <p className="section-kicker">Capabilities</p>
-            <SkillContainer />
-            <p className="section-hint">
-              
-            </p>
-          </div>
-        </section>
-
-        <section id="projects" data-portfolio-section className="portfolio-section">
-          <div className="section-content">
-            <p className="section-kicker">Project Display</p>
-            <ProjectContainer />
-            <p className="section-hint">
-
-            </p>
-          </div>
-        </section>
-
-        <section id="achievements" data-portfolio-section className="portfolio-section">
-          <div className="section-content">
-            <p className="section-kicker">Experience</p>
-            <h2 className="section-title">Achievements &amp; Training</h2>
-            <div className="glass-panel">
-              <p>
-                
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="objective" data-portfolio-section className="portfolio-section">
-          <div className="section-content">
-            <p className="section-kicker">Direction</p>
-            <h2 className="section-title">Career Objective</h2>
-            <div className="glass-panel">
-              <p>
-                
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" data-portfolio-section className="portfolio-section">
-          <div className="section-content">
-            <p className="section-kicker">Get in touch</p>
-            <h2 className="section-title">Contact Information</h2>
-            <div className="glass-panel contact-panel">
-              <p>.</p>
-            </div>
-          </div>
-        </section>
+        {sections.map(({ id, Component }) => (
+          <Component key={id} id={id} />
+        ))}
       </main>
 
-      <nav className="section-indicator" aria-label="Portfolio sections">
-        {sections.map((section, index) => (
-          <button
-            aria-label={`Go to ${section.label}`}
-            aria-current={activeSection === section.id ? 'location' : undefined}
-            className={`indicator-link${activeSection === section.id ? ' is-active' : ''}`}
-            key={section.id}
-            onClick={() => goToSection(section.id)}
-            type="button"
-          >
-            <span className="indicator-number">{String(index + 1).padStart(2, '0')}</span>
-            <span className="indicator-label">{section.label}</span>
-          </button>
-        ))}
-      </nav>
+      <SectionIndicator sections={sections} activeId={activeId} onSelect={scrollToSection} />
     </div>
   )
 }

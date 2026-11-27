@@ -1,0 +1,24 @@
+.cover-content {
+  text-align: center;
+}
+
+.cover-title {
+  margin: 0;
+  font-size: clamp(3.5rem, 12vw, 8rem);
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  line-height: 0.98;
+  text-shadow: 0 10px 40px rgb(0 0 0 / 24%);
+}
+
+.cover-subtitle {
+  margin: 1.5rem 0 0;
+  color: rgb(255 255 255 / 88%);
+  font-size: clamp(1.1rem, 2.7vw, 1.75rem);
+}
+
+.cover-prompt {
+  margin-top: 2rem;
+  color: rgb(255 255 255 / 65%);
+  font-size: 0.875rem;
+}

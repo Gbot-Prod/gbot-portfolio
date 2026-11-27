@@ -1,0 +1,22 @@
+.glass-panel {
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 1.5rem;
+  background: rgb(255 255 255 / 9%);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  box-shadow: 0 20px 60px rgb(0 0 0 / 14%);
+  backdrop-filter: blur(10px);
+  color: rgb(255 255 255 / 82%);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.glass-panel p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.glass-panel.is-centered,
+.glass-panel.is-centered p {
+  text-align: center;
+  hyphens: manual;
+}

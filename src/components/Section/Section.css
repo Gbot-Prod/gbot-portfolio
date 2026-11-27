@@ -1,0 +1,44 @@
+.portfolio-section {
+  display: flex;
+  min-height: 100svh;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 8rem 4rem 2rem;
+  scroll-snap-align: start;
+}
+
+.section-content {
+  width: min(100%, 58rem);
+  margin-inline: auto;
+}
+
+.section-kicker {
+  margin-bottom: 1.25rem;
+  color: rgb(255 255 255 / 65%);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin: 0 0 2rem;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.section-hint {
+  margin-top: 1rem;
+  color: rgb(255 255 255 / 65%);
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .portfolio-section {
+    padding: 3rem 4.25rem 3rem 1.25rem;
+  }
+}
